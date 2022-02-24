@@ -3,6 +3,7 @@ package modellayer;
 import controllayer.ControlPrice;
 import controllayer.IllegalCoinException;
 import utility.Validation;
+import utility.Calculation;
 
 /**
  * Inspired by the book: Flexible, Reliable Software
@@ -59,9 +60,9 @@ public class PPayStation {
 
 		if (currency == Currency.ValidCurrency.DKK) {
 			//PPrice nowPrice = controlPrice.getCurrentPrice();
-			valueInCent = getDkkCoinValueInCent(coin, currentPrice);
+			valueInCent = Calculation.getDkkCoinValueInCent(coin, currentPrice);
 		} else {
-			valueInCent = getEuroCoinValueInCent(coin);
+			valueInCent = Calculation.getEuroCoinValueInCent(coin);
 		}
 		
 		this.amount += valueInCent;
@@ -84,31 +85,6 @@ public class PPayStation {
 	}
 	
 
-	private double getEuroCoinValueInCent(Coin coin) {
-		double valueInCent = 0;
-		double coinValue = coin.getAmount();
-
-		if (coin.getCoinType() == Currency.ValidCoinType.INTEGER) {
-			valueInCent = coinValue * 100;
-		} else {
-			valueInCent = coinValue;
-		}
-
-		return valueInCent;
-	}
-
-	private double getDkkCoinValueInCent(Coin coin, PPrice price) {
-		double valueInCent = 0;
-		Currency.ValidCoinType coinType = coin.getCoinType();
-		double coinValue = coin.getAmount();
-
-		if (coinType == Currency.ValidCoinType.INTEGER) {
-			valueInCent = (coinValue * 100) / price.getExchangeEuroDkk();
-		} else {
-			valueInCent = coinValue / price.getExchangeEuroDkk();
-		}
-
-		return valueInCent;
-	}	
+	
 	
 }
