@@ -4,6 +4,7 @@ import modellayer.Coin;
 import modellayer.Currency;
 import modellayer.PPrice;
 
+//TEst team crew
 public class Calculation {
 
 	public static double getEuroCoinValueInCent(Coin coin) {

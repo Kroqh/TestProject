@@ -60,6 +60,7 @@ public class PPayStation {
 
 		if (currency == Currency.ValidCurrency.DKK) {
 			//PPrice nowPrice = controlPrice.getCurrentPrice();
+			//test team switch to calculation metascript
 			valueInCent = Calculation.getDkkCoinValueInCent(coin, currentPrice);
 		} else {
 			valueInCent = Calculation.getEuroCoinValueInCent(coin);
