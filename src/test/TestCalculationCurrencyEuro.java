@@ -41,11 +41,11 @@ public class TestCalculationCurrencyEuro {
 	 * Entering 5 cents should make the display report 2 minutes parking time
 	 */
 	@Test
-	public void shouldDisplay2MinFor5Cents() throws IllegalCoinException {
+	public void shouldDisplay1MinFor1Cents() throws IllegalCoinException {
 		
 		// Arrange
-		int expectedParkingTime = 2;	// In minutes		
-		int coinValue = 5;
+		int expectedParkingTime = 1;	// In minutes		
+		int coinValue = 1;
 		Currency.ValidCurrency coinCurrency = Currency.ValidCurrency.EURO;
 		Currency.ValidCoinType coinType = Currency.ValidCoinType.FRACTION;
 		
