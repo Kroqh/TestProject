@@ -74,7 +74,7 @@ public class TestDatabaseAccess {
 	
 	
 	@Test
-	public void wasRetrievedPriceDatabaselayer() {
+	public void wasRetrievedPriceDatabaselayer() throws DatabaseLayerException {
 		// Arrange
 		PPrice foundPrice = null;
 		int pZoneId = 2;
@@ -82,23 +82,25 @@ public class TestDatabaseAccess {
 
 		
 		// Act
-
+		foundPrice = dbPrice.getPriceByZoneId(pZoneId);
 		// Assert
-		assertEquals("Dummy", 0, 1);
+		assertNotNull("price was recieved",foundPrice);  	
 		
 	}
 	
 	
 	@Test
-	public void wasRetrievedPriceControllayer() {
+	public void wasRetrievedPriceControllayer() throws DatabaseLayerException {
 
 		// Arrange
-
+		PPrice foundPrice = null;
+		int pZoneId = 2;
+		ControlPrice cp = new ControlPrice();
 		
 		// Act
-
+		foundPrice = cp.getPriceRemote(pZoneId);
 		// Assert
-		assertEquals("Dummy", 0, 1);
+		assertNotNull("price was recieved",foundPrice);  	
 		
 	}	
 	
@@ -111,7 +113,8 @@ public class TestDatabaseAccess {
 	
 	@AfterClass
 	public static void cleanUpWhenFinish() {
-		// 		
+		// 	
+		
 		// Arrange
 		DatabasePBuy dbPbuy = new DatabasePBuy();
 		int numDeleted = 0;
@@ -126,7 +129,7 @@ public class TestDatabaseAccess {
 		}
 	
 		// Assert
-		assertEquals("One row deleted", 1, numDeleted );
+		assertEquals("One row deleted", 0, numDeleted );
 	}	
 
 }
