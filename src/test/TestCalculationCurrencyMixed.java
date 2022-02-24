@@ -59,9 +59,9 @@ public class TestCalculationCurrencyMixed {
 		int expectedParkingTime = 138;
 		int coinValueCent = 5;
 		int coinValueEURO = 2;
-		int coinValueDKKØre = 50;
+		int coinValueDKKore = 50;
 		int coinValueDKK = 10;
-		int coinValueNOKØre = 50;
+		int coinValueNOKore = 50;
 		int coinValueNOK = 20;
 		Currency.ValidCurrency coinCurrencyEURO = Currency.ValidCurrency.EURO;
 		Currency.ValidCurrency coinCurrencyDKK = Currency.ValidCurrency.DKK;
@@ -72,10 +72,10 @@ public class TestCalculationCurrencyMixed {
 		// Act
 		ps.addPayment(coinValueCent, coinCurrencyEURO, coinTypeFraction);
 		ps.addPayment(coinValueEURO, coinCurrencyEURO, coinTypeInteger);
-		ps.addPayment(coinValueDKKØre, coinCurrencyDKK, coinTypeFraction);
+		ps.addPayment(coinValueDKKore, coinCurrencyDKK, coinTypeFraction);
 		ps.addPayment(coinValueDKK, coinCurrencyDKK, coinTypeInteger);
 		System.out.println(ps.readDisplay());
-		ps.addPayment(coinValueNOKØre, coinCurrencyNOK, coinTypeFraction);
+		ps.addPayment(coinValueNOKore, coinCurrencyNOK, coinTypeFraction);
 		ps.addPayment(coinValueNOK, coinCurrencyNOK, coinTypeInteger);
 		System.out.println(ps.readDisplay());
 		
